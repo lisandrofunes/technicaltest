@@ -2,6 +2,7 @@ package com.dux.technicaltest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -24,6 +25,11 @@ public class GlobalExceptionHandler {
                 .mensaje(ex.getMessage())
                 .codigo(HttpStatus.BAD_REQUEST.value());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<Void> handleAuthException() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
     
 }

@@ -15,8 +15,8 @@ public interface EquipoService {
 
     EquipoResponse createEquipo(EquipoRequest equipoRequest);
 
-    EquipoResponse updateEquipo(String id, EquipoRequest equipoRequest);
+    EquipoResponse updateEquipo(Integer id, EquipoRequest equipoRequest);
 
-    void deleteEquipo(String id);
+    void deleteEquipo(Integer id);
     
 }
