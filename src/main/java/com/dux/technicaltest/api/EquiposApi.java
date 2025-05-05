@@ -26,6 +26,7 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
@@ -57,6 +58,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "400", description = "Solicitud invalida", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -89,6 +93,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "404", description = "Equipo no encontrado", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -98,7 +105,7 @@ public interface EquiposApi {
     )
     
     ResponseEntity<Void> deleteEquipo(
-        @Parameter(name = "id", description = "id", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
+        @Parameter(name = "id", description = "id", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     );
 
 
@@ -122,6 +129,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "404", description = "Equipo no encontrado", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -150,6 +160,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "200", description = "Listado de equipos", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EquipoResponse.class)))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -179,6 +192,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "200", description = "Lista de equipos encontrados", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EquipoResponse.class)))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -213,6 +229,9 @@ public interface EquiposApi {
             @ApiResponse(responseCode = "404", description = "Equipo no encontrado", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
@@ -223,7 +242,7 @@ public interface EquiposApi {
     )
     
     ResponseEntity<EquipoResponse> updateEquipo(
-        @Parameter(name = "id", description = "id", required = true, in = ParameterIn.PATH) @PathVariable("id") String id,
+        @Parameter(name = "id", description = "id", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
         @Parameter(name = "EquipoRequest", description = "", required = true) @Valid @RequestBody EquipoRequest equipoRequest
     );
 

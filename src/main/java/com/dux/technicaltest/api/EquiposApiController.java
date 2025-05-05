@@ -43,12 +43,12 @@ public class EquiposApiController implements EquiposApi {
     }
 
     @Override
-    public ResponseEntity<EquipoResponse> updateEquipo(String id, @Valid EquipoRequest equipoRequest) {
+    public ResponseEntity<EquipoResponse> updateEquipo(Integer id, @Valid EquipoRequest equipoRequest) {
         return ResponseEntity.ok(equipoService.updateEquipo(id, equipoRequest));
     }
 
     @Override
-    public ResponseEntity<Void> deleteEquipo(String id) {
+    public ResponseEntity<Void> deleteEquipo(Integer id) {
         equipoService.deleteEquipo(id);
         return ResponseEntity.noContent().build();
     }

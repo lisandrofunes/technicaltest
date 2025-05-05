@@ -68,8 +68,10 @@ public class EquipoServiceImpl implements EquipoService {
     }
 
     @Override
-    public EquipoResponse updateEquipo(String id, EquipoRequest equipoRequest) {
-        Equipo equipo = findEquipoById(Integer.parseInt(id));
+    public EquipoResponse updateEquipo(Integer id, EquipoRequest equipoRequest) {
+        Equipo equipo = findEquipoById(id);
+
+        validateProperties(equipoRequest);
         equipo.setNombre(equipoRequest.getNombre());
         equipo.setLiga(equipoRequest.getLiga());
         equipo.setPais(equipoRequest.getPais());
@@ -83,11 +85,9 @@ public class EquipoServiceImpl implements EquipoService {
     }
 
     @Override
-    public void deleteEquipo(String id) {
-        Equipo equipo = findEquipoById(Integer.parseInt(id));
+    public void deleteEquipo(Integer id) {
+        Equipo equipo = findEquipoById(id);
         equipoRepository.delete(equipo);
     }
 
-    
-    
 }
