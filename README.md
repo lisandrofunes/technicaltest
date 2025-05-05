@@ -11,25 +11,34 @@ Este proyecto esta desarrollado con Spring Boot y forma parte de una prueba téc
 - Swagger / OpenAPI
 - Docker y Docker Compose
 
-## 🧪 Ejecutar la aplicación
+## Ejecutar la aplicación
 
 ### 1. Requisitos
 - Docker
 - Docker Compose
 
 ### 2. Clonar el repositorio
+
+```bash
 git clone https://github.com/lisandrofunes/technicaltest.git
 cd technicaltest
+```
 
 ### 3. Variables de entorno
 Las variables necesarias ya están definidas en el archivo .env.
 Este archivo se incluye solo con fines prácticos para la prueba técnica.
 
 ### 4. Construir la imagen
+
+```bash
 docker compose build
+```
 
 ### 5. Ejecutar
+
+```bash
 docker compose up spring-app
+```
 
 La aplicación estará disponible en: http://localhost:8080
 
@@ -44,4 +53,7 @@ http://localhost:8080/swagger-ui/index.html#/
 - Ya puedes probar los endpoints
 
 ### 7. Ejecutar Test
+
+```bash
 docker compose run --rm spring-tests
+```bash
