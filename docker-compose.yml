@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  spring-app:
+    image: technicaltest:latest
+    container_name: spring-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      SPRING_PROFILES_ACTIVE: default
