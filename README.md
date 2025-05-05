@@ -56,4 +56,4 @@ http://localhost:8080/swagger-ui/index.html#/
 
 ```bash
 docker compose run --rm spring-tests
-```bash
+```
